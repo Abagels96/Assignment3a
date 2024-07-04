@@ -5,13 +5,19 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
-
+import java.util.ArrayList;
 public class UserService {
-	
-	 
+	String newUsername= newUser.getUsername();
+	 String newPassword= newUser.getPassword();
 	static UserArray newUser = new UserArray();
+	static String[] nameList= new String[3];
+	
+    
+	
 	public static String readFile() {
 	//reading the file
 	try {
@@ -28,13 +34,19 @@ public class UserService {
 			System.out.println(Arrays.toString(differentLine));
 				
 				newUser.setPassword(differentLine[1]);
-				String newPassword= newUser.getPassword();
+				 String newPassword= newUser.getPassword();
 				newUser.setName(differentLine[2]);
 				String newName=newUser.getName();
 				newUser.setUsername(differentLine[0]);
 				String newUsername= newUser.getUsername();
-				String[] nameList= new String[4];
+			
 				
+				for(int i=0; i<1; i++) {
+				nameList=Arrays.copyOfRange(differentLine, 0, i+1);
+				System.out.println(Arrays.toString(nameList));}
+			
+		
+				;
 		System.out.println(newPassword);
 		System.out.println(newName);
 		System.out.println(newUsername);
@@ -59,9 +71,8 @@ public class UserService {
 		System.out.println("Login here");
 		System.out.println("Put your username first");
 		String username=scanner.nextLine();
-	if  (username.equals(newUser.getUsername())){
+	if  (username.equals(nameList)){
 			System.out.println("That is a valid username");
-		}
 		System.out.println("Put your password in next");
 		String password=scanner.nextLine();
 		
@@ -69,18 +80,15 @@ public class UserService {
 		String name= scanner.nextLine();
 		
 		
-		return "Successfully logged in";
-		
+			 System.out.println(Arrays.toString(nameList));
 	}
+	return "this is the last time";
 	
 	
-	public void  verifyInput()
-	{ for(i=0; i<)
-		newUser.getUsername()
-		
-		
 
-		
+	
+
+	
 		
 		
 		 
