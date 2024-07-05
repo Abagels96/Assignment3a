@@ -63,34 +63,24 @@ public class UserService {
 	}
 	// take in the user's inputs
 
-	public String takeInput (String newName) {
-		
-		Scanner scanner= new Scanner(System.in);
+	public String takeInput(String newName) {
+
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Login here");
 		System.out.println("Put your username first");
-		String username=scanner.nextLine();
-	if  (username.equals(nameList)){
-			System.out.println("That is a valid username");F
-		System.out.println("Put your password in next");
-		String password=scanner.nextLine();
-		
-		System.out.println("Put your name in last");
-		String name= scanner.nextLine();
-		
-		
-			 System.out.println(Arrays.toString(nameList));
-	}
-	return "this is the last time";
-	
-	
+		String username = scanner.nextLine();
+		if (username.equals(nameList)) {
+			System.out.println("That is a valid username");
+			System.out.println("Put your password in next");
+			String password = scanner.nextLine();
 
-	
+			System.out.println("Put your name in last");
+			String name = scanner.nextLine();
 
-	
-		
-		
-		 
-		
+			System.out.println(Arrays.toString(nameList));
+		}
+		return "this is the last time";
+
 	}
 
 }
