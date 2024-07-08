@@ -8,11 +8,8 @@ public class UserApplication {
 	public static void main(String[]args) {
 		
 UserService user= new UserService();
-	 user.readFile();
-	
-UserArray rats = new UserArray();
-user.takeInput(rats.getUsername());
-
+	 UserService.readFile();
+	user.createUsers();
 
 }
 	}
