@@ -11,13 +11,10 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class UserService {
-	static String newPassword;
-	static String newUsername;
-	static String newName;
+	
+ User newUser=  new User(User.getPassword(), User.getName(), User.getUsername());
 
-	static UserArray newUser = new UserArray(newName, newPassword, newUsername);
-
-	public String readFile() {
+	public void readFile() {
 		// reading the file
 		try {
 			BufferedReader file = new BufferedReader(new FileReader("data.txt"));
@@ -31,22 +28,21 @@ public class UserService {
 
 					String[] differentLines = lines.split(",");
 					System.out.println(Arrays.toString(differentLines));
-
+					
 					newUser.setPassword(differentLines[1]);
 
 					newUser.setName(differentLines[2]);
 
 					newUser.setUsername(differentLines[0]);
-
-					String newName = newUser.getName();
-					String newUsername = newUser.getUsername();
-					String newPassword = newUser.getPassword();
-
-					System.out.println(newUsername);
-					System.out.println(newPassword);
-					System.out.println(newName);
-					System.out.println(newUser);
-				}
+					
+			
+   for(String line:differentLines) {
+	   User otherUser= new User(User.getPassword(),User.getName(),User.getUsername());
+	   System.out.println(otherUser.toString());
+   }
+					
+					
+					}
 //
 				file.close();
 
@@ -58,7 +54,7 @@ public class UserService {
 			// TODO Auto-generated catch block
 			System.out.println("Oops file is not found ");
 		}
-		return newUsername;
+				
 
 	}
 	// take in the user's inputs
@@ -78,12 +74,12 @@ public class UserService {
 
 		return "this is the last time";
 	}
-
-	public void createUsers(String newUsername) {
-		UserArray[] many = new UserArray[4];
+	 
+	public void createUser() {
+		User[] many = new User[4];
 		for (int i = 0; i < 4; i++) {
 
-			many[i] = new UserArray(newUsername, newPassword, newName);
+			many[i] = new User(User.getName(),User.getPassword(),User.getUsername());
 
 		}
 		System.out.println(Arrays.toString(many));

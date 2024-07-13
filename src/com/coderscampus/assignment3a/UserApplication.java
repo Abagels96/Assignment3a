@@ -10,8 +10,8 @@ public class UserApplication {
 UserService user= new UserService();
 
 user.readFile();
-String newUsername= user.newUsername;
-user.createUsers( newUsername);
+
+user.createUser();
 }
 	}
 
