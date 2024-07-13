@@ -11,15 +11,13 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class UserService {
-	
-	static UserArray newUser = new UserArray();
-	static UserArray newUser1= new UserArray();
-	static UserArray newUser2= new UserArray();
- static String newUsername = newUser.getUsername();
-	static String newPassword = newUser.getPassword();
-	static String newName=newUser.getName();
+	static String newPassword;
+	static String newUsername;
+	static String newName;
 
-	public static String readFile() {
+	static UserArray newUser = new UserArray(newName, newPassword, newUsername);
+
+	public String readFile() {
 		// reading the file
 		try {
 			BufferedReader file = new BufferedReader(new FileReader("data.txt"));
@@ -35,20 +33,21 @@ public class UserService {
 					System.out.println(Arrays.toString(differentLines));
 
 					newUser.setPassword(differentLines[1]);
-					String newPassword = newUser.getPassword();
+
 					newUser.setName(differentLines[2]);
-					String newName = newUser.getName();
+
 					newUser.setUsername(differentLines[0]);
+
+					String newName = newUser.getName();
 					String newUsername = newUser.getUsername();
-					for(String line:differentLines) {
-						newUser.userCreate(newUsername, newPassword, newUsername);}
-					}
-				 System.out.println(newUsername);
+					String newPassword = newUser.getPassword();
+
+					System.out.println(newUsername);
 					System.out.println(newPassword);
 					System.out.println(newName);
-							
-	
-				
+					System.out.println(newUser);
+				}
+//
 				file.close();
 
 			} catch (IOException e) {
@@ -59,39 +58,34 @@ public class UserService {
 			// TODO Auto-generated catch block
 			System.out.println("Oops file is not found ");
 		}
-		
-		return "This is the end";
+		return newUsername;
+
 	}
 	// take in the user's inputs
 
-	public String takeInput(String newName) {
+	public String takeInput() {
 
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Login here");
 		System.out.println("Put your username first");
 		String username = scanner.nextLine();
-		
-		
-			System.out.println("Put your password in next");
-			String password = scanner.nextLine();
 
-			System.out.println("Put your name in last");
-			String name = scanner.nextLine();
+		System.out.println("Put your password in next");
+		String password = scanner.nextLine();
 
-			return "this is the last time";
+		System.out.println("Put your name in last");
+		String name = scanner.nextLine();
+
+		return "this is the last time";
+	}
+
+	public void createUsers(String newUsername) {
+		UserArray[] many = new UserArray[4];
+		for (int i = 0; i < 4; i++) {
+
+			many[i] = new UserArray(newUsername, newPassword, newName);
+
 		}
-		
-
-	
-
-	public void createUsers() {
-	
-		Object[] many= new Object[4];
-		for(int i=0; i<4; i++) {
-			
-			many[i]=newUser.userCreate(newUsername, newPassword, newName);		
-			
-			}
-			System.out.println(Arrays.toString(many));
+		System.out.println(Arrays.toString(many));
 	}
 }

@@ -8,9 +8,10 @@ public class UserApplication {
 	public static void main(String[]args) {
 		
 UserService user= new UserService();
-	 UserService.readFile();
-	user.createUsers();
 
+user.readFile();
+String newUsername= user.newUsername;
+user.createUsers( newUsername);
 }
 	}
 

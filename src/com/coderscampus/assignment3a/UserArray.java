@@ -28,18 +28,10 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
-public UserArray userCreate(String username,String password, String name) {
-	UserArray user1= new UserArray();
- UserArray user2=new UserArray();
-	
-	user1.setPassword(password);
-	user1.setName(name);
-	
-	user1.setUsername(username);
-	user2.setName(name);
-	user2.setPassword(password);
-	user2.setUsername(username);
-	return user1;
-	
-}
-}
+public UserArray(String name, String password, String username) {
+	this.name=name;
+	this.password=password;
+	this.username=username;
+}}
+
+
