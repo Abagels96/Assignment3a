@@ -11,8 +11,10 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class UserService {
-	
- User newUser=  new User(User.getPassword(), User.getName(), User.getUsername());
+	String username;
+	String name;
+	String password;
+ User newUser=  new User(username,name,password);
 
 	public void readFile() {
 		// reading the file
@@ -34,14 +36,7 @@ public class UserService {
 					newUser.setName(differentLines[2]);
 
 					newUser.setUsername(differentLines[0]);
-					
-			
-   for(String line:differentLines) {
-	   User otherUser= new User(User.getPassword(),User.getName(),User.getUsername());
-	   System.out.println(otherUser.toString());
-   }
-					
-					
+	
 					}
 //
 				file.close();
@@ -74,14 +69,18 @@ public class UserService {
 
 		return "this is the last time";
 	}
+	
 	 
 	public void createUser() {
-		User[] many = new User[4];
+		String username= newUser.getUsername();
+       String password=newUser.getPassword();
+       String name=newUser.getName();
+       User[] many = new User[4];
 		for (int i = 0; i < 4; i++) {
 
-			many[i] = new User(User.getName(),User.getPassword(),User.getUsername());
-
+			many[i] = new User (username,password,name);
+					
+             
 		}
 		System.out.println(Arrays.toString(many));
-	}
-}
+	}}
