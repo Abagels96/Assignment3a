@@ -11,35 +11,42 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class UserService {
-	String username;
-	String name;
-	String password;
- User newUser=  new User(username,name,password);
+	
 
 	public void readFile() {
 		// reading the file
+		
+		BufferedReader fileReader=null;
 		try {
-			BufferedReader file = new BufferedReader(new FileReader("data.txt"));
+			fileReader = new BufferedReader(new FileReader("data.txt"));
 
 			try {
 				String lines = "";
+				User[] users= new User [4];
 				System.out.println(lines);
 // fills username, password and name into the user POJO
-				while ((lines = file.readLine()) != null) {
+				while ((lines = fileReader.readLine()) != null) {
 					System.out.println(lines);
-
-					String[] differentLines = lines.split(",");
-					System.out.println(Arrays.toString(differentLines));
 					
-					newUser.setPassword(differentLines[1]);
-
-					newUser.setName(differentLines[2]);
-
-					newUser.setUsername(differentLines[0]);
-	
+					
+					
+					String[] differentLines = lines.split(",");
+					 if(differentLines!=null) { User user= new User(differentLines[0],differentLines[1],differentLines[2]);
+					for (int i=0; i<4;i++) {
+						users[i]=user;
 					}
+					
+						System.out.println(Arrays.toString(users));
+					System.out.println(Arrays.toString(differentLines));}}
+				
+			
+					
+					
+
+					
+				
 //
-				file.close();
+				fileReader.close();
 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -47,11 +54,10 @@ public class UserService {
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Oops file is not found ");
+			System.out.println("Oops file is not found ");}
 		}
-				
 
-	}
+	
 	// take in the user's inputs
 
 	public String takeInput() {
@@ -69,18 +75,6 @@ public class UserService {
 
 		return "this is the last time";
 	}
-	
-	 
-	public void createUser() {
-		String username= newUser.getUsername();
-       String password=newUser.getPassword();
-       String name=newUser.getName();
-       User[] many = new User[4];
-		for (int i = 0; i < 4; i++) {
 
-			many[i] = new User (username,password,name);
-					
-             
-		}
-		System.out.println(Arrays.toString(many));
-	}}
+
+}

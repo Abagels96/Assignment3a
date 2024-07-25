@@ -8,6 +8,6 @@ public class UserApplication {
 
 		user.readFile();
 
-		user.createUser();
+		
 	}
 }
