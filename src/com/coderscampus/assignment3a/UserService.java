@@ -22,6 +22,7 @@ public class UserService {
 
 			try {
 				String lines = "";
+				List<String> found= new ArrayList<String>();
 				User[] users= new User [4];
 				System.out.println(lines);
 // fills username, password and name into the user POJO
@@ -31,11 +32,14 @@ public class UserService {
 					
 					
 					String[] differentLines = lines.split(",");
-					 if(differentLines!=null) { User user= new User(differentLines[0],differentLines[1],differentLines[2]);
-					for (int i=0; i<4;i++) {
-						users[i]=user;
-					}
 					
+					  { found.add(lines);
+						  
+						User  user= new User(differentLines[0],differentLines[1],differentLines[2]);
+					for (int i=0; i<4;i++) {
+						users[i]= user;
+					}
+					System.out.println(found);
 						System.out.println(Arrays.toString(users));
 					System.out.println(Arrays.toString(differentLines));}}
 				
