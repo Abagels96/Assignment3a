@@ -7,7 +7,8 @@ public class UserApplication {
 		UserService user = new UserService();
 
 		user.readFile();
-
-		
+	
+User[] users2 = user.users1;
+		user.takeInput(users2);
 	}
 }
