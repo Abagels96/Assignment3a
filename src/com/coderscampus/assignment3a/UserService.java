@@ -72,7 +72,7 @@ User[] users1= new User[4];
 boolean correct=false;
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
-		for(int i=0; i<=5;i++) {
+		for(int i=0; i<5;i++) {
 		System.out.println("Login here");
 		System.out.println("Put your username first");
 		String username = scanner.nextLine();
@@ -83,7 +83,7 @@ boolean correct=false;
 for(User user: users1) {
 	System.out.println(user.getUsername());
 
-if(username.equals(user.getUsername())) {
+if(username.equalsIgnoreCase(user.getUsername())) {
 	System.out.println("Welcome"+" "+ user.getName());
 	
 	if(password.equals(user.getPassword())) {
@@ -91,12 +91,18 @@ if(username.equals(user.getUsername())) {
 		System.out.println("That is correct");
 		break;
 		
-	}}
-}
-System.out.println(correct);
+	}
+	if(password!=user.getPassword()) {
+		System.out.println("Not the right password");
+	}
+	
+	}
 }
 
-	
+}
+
+if(correct==false) {
+		System.out.println("Too many invalid attempts");}	
 
 }
 
