@@ -9,6 +9,10 @@ public class UserApplication {
 		user.readFile();
 	
 User[] users2 = user.users1;
-		user.takeInput(users2);
+
+
+	user.takeInput(users2);
+
+		
 	}
 }

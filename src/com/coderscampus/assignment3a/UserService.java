@@ -67,25 +67,35 @@ User[] users1= new User[4];
 
 	@SuppressWarnings("unlikely-arg-type")
 	public void takeInput(
-		User[]	users1) {
-
+		User[]	users1) 
+	{
+boolean correct=false;
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
+		for(int i=0; i<=5;i++) {
 		System.out.println("Login here");
 		System.out.println("Put your username first");
 		String username = scanner.nextLine();
 
-//		System.out.println("Put your password in next");
-//		String password = scanner.nextLine();
+		System.out.println("Put your password in next");
+		String password = scanner.nextLine();
 
 for(User user: users1) {
-	System.out.println(user);
+	System.out.println(user.getUsername());
 
-
-
+if(username.equals(user.getUsername())) {
+	System.out.println("Welcome"+" "+ user.getName());
+	
+	if(password.equals(user.getPassword())) {
+		correct=true;
+		System.out.println("That is correct");
+		break;
+		
+	}}
 }
-String splunge=Arrays.deepToString(users1);
-if(splunge.equalsIgnoreCase(username)){
-	System.out.println("splunge");	
+System.out.println(correct);
+}
+
 	
 
 }
@@ -100,4 +110,4 @@ if(splunge.equalsIgnoreCase(username)){
 	{
 }
 
-}}
+}
