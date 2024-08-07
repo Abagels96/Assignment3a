@@ -65,7 +65,6 @@ User[] users1= new User[4];
 
 	// take in the user's inputs
 
-	@SuppressWarnings("unlikely-arg-type")
 	public void takeInput(
 		User[]	users1) 
 	{
@@ -87,19 +86,24 @@ if(username.equalsIgnoreCase(user.getUsername())) {
 	System.out.println("Welcome"+" "+ user.getName());
 	
 	if(password.equals(user.getPassword())) {
-		correct=true;
-		System.out.println("That is correct");
-		break;
 		
-	}
-	if(password!=user.getPassword()) {
-		System.out.println("Not the right password");
+		System.out.println("That is correct");
+		correct=true;
+		
+		
+		
+	}if(correct==true) {
+			System.out.println("Enter");
+		i=5;
+		}
+	
+		
 	}
 	
 	}
 }
 
-}
+
 
 if(correct==false) {
 		System.out.println("Too many invalid attempts");}	
